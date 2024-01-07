@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>  Speech Emotion Recognition System</title>
+  <link rel="shortcut icon" href="voice.svg" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="style.css">
+  
+    <link rel="stylesheet" href="bootsrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      body {
+        background: #007bff;
+        background: linear-gradient(to right, #0062e6, #33aeff);
+      }
+    </style>
+</head>
+<body class="auth-false">
+
+	<div class="userAuth1 unauthenticated">
+		<form>
+      <img src="voice.svg" alt="" srcset="" style="	width: 350px;height: 300px">
+      <BR></BR>
+      <p class="mb-4 text-muted">
+        Speech Emotion Recognition System
+      </p>
+		</form>
+     
+    <div class="d-grid">
+      <a data-toggle="modal" data-target="#loginModal" type="button"
+      class="btn btn-primary btn-lg" href="login.html">
+        Sign-in
+      </a>
+    </div>
+
+	</div>
+
+    
+	
+        <div class="userAuth2 authenticated " style="background: #007bff;
+        background: linear-gradient(to right, #0062e6, #33aeff);">
+          
+          <div class="container px-5 my-5 "style="background: #007bff;
+          background: linear-gradient(to right, #0062e6, #33aeff);">
+            <div class="row mb-2   shadow-lg"tyle="background: #007bff;
+            background: linear-gradient(to right, #0062e6, #33aeff);">
+              <button type="button" class="btn btn-danger" id="logout" style="float: right;position: relative;"
+              >Logout</button> 
+            </div>
+            <div class="row mt-2 bg-white justify-content-center shadow-lg" style="background: #007bff;
+            background: linear-gradient(to right, #0062e6, #33aeff)">
+              <div class="col-lg-3 mt-5 mb-5">
+                <h4> record</h4>
+                <div class="card border-start-0 rounded-3">
+                  <div class="card-body p-4">
+                    <div class=" mb-3">
+                
+                      <a href="record" class="menu-item">
+                        <img
+                        src="audio.png"
+                        class="img-thumbnail border-0"
+                        alt="audio" />
+                      </a>
+                    </div>
+                  
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 mt-5 mb-5">
+                <h4> Upload</h4>
+                <div class="card border-end-0 rounded-3">
+                  <div class="card-body p-4">
+                    <div class=" mb-2">
+                      <!-- <div class="h1 fw-light">File Test</div> -->
+                   
+                      <a href="upload" class="menu-item">
+                        <img
+                        src="add.svg"
+                        width="200px"
+                        class="img-thumbnail border-0"
+                        alt="gambar-voice"
+                      />   
+                      </a>
+                     
+                    </div>
+                
+                    <!-- End of contact form -->
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 mt-5 mb-5">
+                <h4> realtime</h4>
+                <div class="card border-end-0 rounded-3">
+                  <div class="card-body p-4">
+                    <div class=" mb-2">
+                       <a href="grafik.html" class="menu-item">
+                        <img
+                        src="c2.PNG"
+                        width="200px"
+                        class="img-thumbnail border-0"
+                        alt="gambar-voice"
+                      />   
+                      </a>
+                     
+                    </div>
+                
+                    <!-- End of contact form -->
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+
+<!-- Modal Register -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="Register" aria-hidden="true"   >
+    <div class="modal-dialog">
+     <div class="modal-content"  >
+       <form id="registerForm" method="POST"  >
+    
+         <div class="modal-header">
+           <h4 class="modal-title" id="registerModalLabel">Register</h4>
+           <button  type="button" class="btn btn-default" data-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
+         </div>
+    
+         <div class="modal-body">
+           <div class="form-group">
+             <label for="recipient-name" class="control-label">Nama</label>
+             <input type="text" class="form-control"id="t4_namauser_jsa_add">
+           </div>
+    
+    
+           <div class="form-group">
+             <label for="recipient-name" class="control-label">Email:</label>
+             <input type="text" class="form-control" id="registerEmail">
+         </div>
+    
+         <input class="form-control" type="text"  id="T4_add" style="display: none">
+           <input class="form-control" type="text" id="t4_user_jsa_add" style="display: none">
+           <input class="form-control"type="text" id="t4_nocus_jsa_add"  style="display: none">
+       
+    
+    
+           <div class="form-group">
+             <label for="message-text" class="control-label">Password:</label>
+             <input type="password" class="form-control" id="registerPassword">
+           </div>
+    
+           <div class="form-group">
+             <label for="message-text" class="control-label">Confirm Password:</label>
+             <input type="password" class="form-control" id="registerConfirmPassword">
+           </div>
+           
+           <div class="form-group">
+               <input type="text" class="form-control" id="myText" style="display: none" >
+             </div>
+    
+           <button id="submit_link"type="submit" name="button" style="display: none">Save</button> 
+     
+    
+        
+    
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+           <button type="submit" class="btn btn-primary" id="doRegister">Register</button>
+         </div>
+    
+       </form>
+     </div>
+    </div>
+    </div>
+<!-- Modal Login-->
+    <div   class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+    <div class="modal-dialog">
+     <div class="modal-content">
+       <form id="loginForm" method="POST">
+         <div class="modal-header">
+           <h4 class="modal-title" id="loginModalLabel">Login</h4>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         </div>
+         <div class="modal-body">
+          <p class="mb-4 text-muted">
+            Speech Emotion Recognition
+          </p>
+           <div class="form-group">
+             <label for="recipient-name" class="control-label">Email:</label>
+             <input type="text" class="form-control" id="loginEmail">
+           </div>
+           <div class="form-group">
+             <label for="message-text" class="control-label">Password:</label>
+             <input type="password" class="form-control" id="loginPassword">
+           </div>
+         </div>
+         <div class="modal-footer">
+          <button  type="submit" class="btn btn-success" id="doLogin">Login</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal" 
+          data-toggle="modal" data-target="#registerModal">Register</button>
+         
+        </div>
+        
+
+       </form>
+     </div>
+    </div>
+    </div>
+<!-- Modal Update -->
+    <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateLabel"
+    aria-hidden="true" >
+    <div class="modal-dialog" role="document" style="max-width: 100%;margin:0px" >
+    <div class="modal-content" style="background-color: transparent;width: 100%">
+    <div class="modal-body" style="height: 900px">
+    <div class="row " style="margin-bottom:20px" id="nav3">
+    
+    </div>
+    
+    
+    
+    
+    <input type="text" name="" id="t4_user_jsa" style="display: none">
+    
+    
+    
+    <form id="myForm" >
+      <h6 style="color:white" > <i class="fa fa-spinner fa-spin" style='color:white;position: relative;font-size: 16px'></i> Menunggu Pesanan</h6>
+    
+    
+     <h6 style="color:white" > Nama Pemesan</h6>
+     <input class="form-control " id="t4_namaclient_jsa" style="background-color: transparent;border-color: transparent;">
+    
+     <h6 style="color:white" > Nomer Pemesan</h6>
+     <input class="form-control" id="t4_nocus_jsa"style="background-color: transparent;border-color: transparent" >
+     <h6 style="color:white" > Koordinat</h6>
+     <input class="form-control" type="text" id="t4_latclient_jsa" style="background-color: transparent;border-color: transparent">
+     <input class="form-control"  type="text" id="t4_longclient_jsa"style="background-color: transparent;border-color: transparent" >
+    
+    </form>
+    <input class="form-control"type="text"id="t4_namauser_jsa" style="display: none">
+    <input class="form-control" type="text" id="T4" style="display: none">
+    <input class="form-control" type="text" id="t4_nouser_jsa"  style="display: none">
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- Modal loading -->
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="Message" aria-hidden="true">
+    <div class="modal-dialog">
+     <div class="modal-content" >
+       <div class="modal-header">
+           <div style="width: 400px;height: 400px;">
+            <h4 class="modal-title" id="messageModalLabel">Message</h4>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success" data-dismiss="modal" >tutup</button>
+             
+            </div>
+          </div>
+        
+
+       </div>
+    
+         <div class="pre-auth"></div>
+         <div class="post-auth"></div>
+        </div>
+    </div>
+    </div>
+  
+<script src="jquery-3.2.1.slim.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+<script src="bootstrap.min.js"></script>
+
+ 
+<script>
+
+var config = {
+  apiKey: "AIzaSyDdOuc3Ce9ZBx3W6oPU2SoIxB8tAxmh25A",
+  authDomain: "thesisku-b45bd.firebaseapp.com",
+  projectId: "thesisku-b45bd",
+  storageBucket: "thesisku-b45bd.appspot.com",
+  messagingSenderId: "874036005451",
+  appId: "1:874036005451:web:727e08bf969c9603285bce",
+ 
+  };
+
+firebase.initializeApp(config);
+
+var Auth = firebase.auth();
+//var dbRef = firebase.database();
+//var db = firebase.database();
+//var usersRef = dbRef.ref('users')
+  var auth = null;
+  $('#registerForm').on('submit', function (e) {
+    e.preventDefault();
+    $('#registerModal').modal('hide');
+    $('#messageModalLabel').html(spanText('<i class="fa fa-cog fa-spin"></i>', ['center', 'info']));
+    $('#messageModal').modal('show');
+    
+    var data = {
+      email: $('#registerEmail').val(),
+      firstName: $('#registerFirstName').val(), 
+      lastName: $('#registerLastName').val(),
+    };
+
+    var passwords = {
+      password: $('#registerPassword').val(),
+      cPassword: $('#registerConfirmPassword').val(), 
+    }
+    if (data.email != '' && passwords.password != '' && passwords.cPassword != '') {
+      if (passwords.password == passwords.cPassword) {
+        //create the user
+
+        firebase.auth()
+          .createUserWithEmailAndPassword(data.email, passwords.password)
+          .then(function (user) {
+            return user.updateProfile({
+              displayName: data.firstName + ' ' + data.lastName
+            })
+          })
+          .then(function (user) {
+            //now user is needed to be logged in to save data
+            auth = user;
+            //now saving the profile data
+            /*
+            usersRef.child(user.uid).set(data)
+              .then(function () {
+             
+              })
+*/
+            $('#messageModalLabel').html(spanText('Success!', ['center', 'success']))
+            $('#messageModal').modal('hide');
+          })
+          /*
+          .catch(function (error) {
+            $('#messageModalLabel').html(spanText('silahkan login cek data anda ', ['danger'] ))
+            $('#messageModal').modal('hide');
+          });
+
+          */
+      } else {
+        //password and confirm password didn't match
+        $('#messageModalLabel').html(spanText("ERROR: Passwords didn't match", ['danger']))
+      }
+    }
+  });
+
+  //Login
+  $('#loginForm').on('submit', function (e) {
+    e.preventDefault();
+    $('#loginModal').modal('hide');
+
+    $('#messageModalLabel').html(spanText('<i class="fa fa-cog fa-spin"></i>', ['center', 'info']));
+    $('#messageModal').modal('show');
+
+    if ($('#loginEmail').val() != '' && $('#loginPassword').val() != '') {
+      //login the user
+      var data = {
+        email: $('#loginEmail').val(),
+        password: $('#loginPassword').val()
+      };
+      firebase.auth().signInWithEmailAndPassword(data.email, data.password)
+        .then(function (authData) {
+          auth = authData;
+          $('#messageModalLabel').html(spanText('Success!', ['center', 'success']))
+          $('#messageModal').modal('hide');
+          $('#loginModal').modal('hide');
+        })
+        .catch(function (error) {
+
+         $('#messageModalLabel').html(spanText('ERROR: ' + error.code, ['danger']))
+        });
+    }
+  });
+
+  $('#logout').on('click', function (e) {
+    e.preventDefault();
+    firebase.auth().signOut()
+  });
+
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      auth = user;
+      $('body').removeClass('auth-false').addClass('auth-true');
+      /*
+      usersRef.child(user.uid).once('value').then(function (data) {
+        var info = data.val();
+        if (user.photoUrl) {
+         $('.user-info .user-name').hide();
+        } else if (user.displayName) {
+          $('.user-info').append('<span class="user-name">' + user.displayName + '</span>');
+        } 
+      });
+      */
+    } else {
+      $('body').removeClass('auth-true').addClass('auth-false');
+      $('#contacts').html('');
+      auth = null;
+    }
+   
+  });
+  
+function spanText(textStr, textClasses) {
+ var classNames = textClasses.map(c => 'text-' + c).join(' ');
+  return '<span class="' + classNames + '">' + textStr + '</span>';
+  
+}
+
+
+
+
+
+</script>
+<script>
+  function on() {
+    document.getElementById("overlay").style.display = "block";
+  }
+  
+  function off() {
+    document.getElementById("overlay").style.display = "none";
+  }
+  $(function() { $("#mybutton2").click(function (event) { $.getJSON('/Record', { },
+     function(data) { }); return false; }); });
+  </script>
+  
+
+    </body>
+</html>
